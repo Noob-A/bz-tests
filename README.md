@@ -1,6 +1,10 @@
-# 1.8.9ForgeTemplate
+# bz-tests
 
-A fixed and ready to use template for minecraft forge modding on `1.8.9`
+I will be fixing the naming in future!
+
+## Developer installation info
+
+Build with a fixed and ready to use template for minecraft forge modding on `1.8.9`
 with `shadow` plugin integrated including two useful `artifacts`. Tested flawlessly on `IntelliJ IDEA Ultimate 2022.2`
 
 ```js
