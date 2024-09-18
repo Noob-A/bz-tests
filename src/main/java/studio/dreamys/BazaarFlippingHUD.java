@@ -42,7 +42,7 @@ public class BazaarFlippingHUD extends Gui {
                             ": Spread: " + String.format("%.2f", item.getSpread()) +
                             " Buy Vol: " + String.format("%.2f", item.getBuyVolume()) +
                             " Sell Vol: " + String.format("%.2f", item.getSellVolume()) +
-                            " Fill Time: " + String.format("%.2f", item.getEstimatedTimeToFill()) + " sec", x, y, 0xFFFFFF);
+                            " Fill Time: " + String.format("%.2f", item.getEstimatedTimeToFill() + item.getEstimatedTimeToSell()) + " sec", x, y, 0xFFFFFF);
                 }
                 y += itemHeight;
             }
@@ -54,11 +54,9 @@ public class BazaarFlippingHUD extends Gui {
 
     @SubscribeEvent
     public void onMouseScroll(InputEvent.MouseInputEvent event) {
-        // Ensure scrolling is within bounds
         if (Mouse.hasWheel()) {
             int scroll = Mouse.getDWheel();
             if (scroll != 0) {
-                // Adjust scrolling based on mouse wheel
                 int newOffset = scrollOffset + (scroll > 0 ? -1 : 1);
                 scrollOffset = Math.max(0, Math.min(newOffset, currentItems.size() - maxItemsPerPage));
             }

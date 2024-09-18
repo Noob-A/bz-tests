@@ -17,7 +17,8 @@ public class BazaarItem {
     }
 
     public double getSpread() {
-        return (sellPrice - buyPrice);
+        double mean = (sellPrice + buyPrice)/2;
+        return (buyPrice- sellPrice)/mean;
     }
 
     public double getBuyPrice() {
@@ -38,12 +39,12 @@ public class BazaarItem {
 
     public double getEstimatedTimeToFill() {
         // Time to fill 1M coins for buy orders (in seconds)
-        return 1_000_000 / (buyVolume * sellPrice);  // In seconds
+        return 1_000_000 / (buyVolume * (buyPrice-0.1));  // In seconds
     }
 
     public double getEstimatedTimeToSell() {
         // Time to fill 1M coins for sell orders (in seconds)
-        return 1_000_000 / (sellVolume * buyPrice);  // In seconds
+        return 1_000_000 / (sellVolume * (sellPrice+0.1));  // In seconds
     }
 
     public String getProductId() {

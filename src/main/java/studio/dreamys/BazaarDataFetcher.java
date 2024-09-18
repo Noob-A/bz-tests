@@ -1,5 +1,6 @@
 package studio.dreamys;
 
+import java.util.List;
 import java.util.Map;
 
 public class BazaarDataFetcher {
@@ -10,17 +11,18 @@ public class BazaarDataFetcher {
     // Inner class to represent product information
     public static class BazaarItem {
         public BazaarQuickStatus quick_status;
+        public List<OrderSummary> buy_summary;
+        public List<OrderSummary> sell_summary;
 
         public static class BazaarQuickStatus {
-            public String productId;
-            public double sellPrice;
-            public double sellVolume;
-            public double sellMovingWeek;
-            public int sellOrders;
-            public double buyPrice;
-            public double buyVolume;
             public double buyMovingWeek;
-            public int buyOrders;
+            public double sellMovingWeek;
+        }
+
+        // Represents order book entries in buy_summary and sell_summary
+        public static class OrderSummary {
+            public double pricePerUnit;
+            public double amount;
         }
     }
 }
