@@ -38,6 +38,7 @@ repositories {
     //repos for libraries (not gradle plugins)
     //example:
     //maven { url "https://repo.dreamys.studio/" }
+    maven { url = "https://pkgs.dev.azure.com/djtheredstoner/DevAuth/_packaging/public/maven/v1" }
 }
 
 dependencies {
@@ -50,6 +51,9 @@ dependencies {
     //your libraries wont be accessible outside of intellij
     //example:
     //compile "studio.dreamys:libSkyblock:1.1.1"
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'me.djtheredstoner:DevAuth-forge-legacy:1.2.1'
+
 }
 
 processResources {
